@@ -10,8 +10,8 @@ normal = Vector2( 1, 0 )
 [node name="Level" type="Node2D"]
 
 [node name="Background" type="ColorRect" parent="."]
-margin_right = 1021.0
-margin_bottom = 599.0
+margin_right = 1024.0
+margin_bottom = 576.0
 color = Color( 0.431373, 0.431373, 0.431373, 1 )
 
 [node name="Lower_Bar" parent="." instance=ExtResource( 1 )]
