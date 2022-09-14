@@ -1,17 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Bar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Block.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=4]
 
 [sub_resource type="LineShape2D" id=1]
 normal = Vector2( 1, 0 )
 
 [node name="Level" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Background" type="ColorRect" parent="."]
-margin_right = 1021.0
-margin_bottom = 599.0
+margin_right = 1024.0
+margin_bottom = 576.0
 color = Color( 0.431373, 0.431373, 0.431373, 1 )
 
 [node name="Lower_Bar" parent="." instance=ExtResource( 1 )]
