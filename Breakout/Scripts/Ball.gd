@@ -1,12 +1,14 @@
 extends Area2D
 
+var life = 3
 var velocity = Vector2(0,1)
 export var speed = 200
 onready var cs = $CollisionShape2D
 onready var sprite = $Sprite
+signal ballDead
 
 func _ready():
-	position = Vector2(512, 448)
+	position = Vector2(514, 448)
 
 func _process(delta):
 	velocity = velocity.normalized() * speed
@@ -20,3 +22,7 @@ func _on_Node2D_area_entered(area):
 	if (area.name == "Left_Wall") or (area.name == "Right_Wall"):
 		velocity.x = -velocity.x
 		
+
+func _on_VisibilityNotifier2D_screen_exited():
+	velocity = Vector2(0,1)
+	emit_signal("ballDead")
