@@ -14,13 +14,8 @@ func _process(delta):
 
 func _on_Node2D_area_entered(area):
 	if (area.name == "Lower_Bar") or (area.name == "Upper_Bar"):
-		cs.shape.collide_and_get_contacts(cs.transform, area.cs.shape, area.cs.transform)
-		#print(area.cs.shape.collide_and_get_contacts(area.cs.transform, cs.shape, cs.transform))
 		velocity.y = -velocity.y
-		#print(cs.shape, cs.transform, area.cs.shape, area.cs.transform)
-		velocity.x = -100 #metade da barra pra esquerda a gente diminui a velocidade entre -1 e 0, metade da barra pra direita a gente aumenta a velocidade entre 0 e 1
-		#velocity = -velocity
+		velocity.x =  self.get_global_transform().origin.x - area.get_global_transform().origin.x
 	if (area.name == "Left_Wall") or (area.name == "Right_Wall"):
-		print(area.name)
 		velocity.x = -velocity.x
 		
