@@ -15,6 +15,7 @@ func _process(delta):
 func _on_Node2D_area_entered(area):
 	if (area.name == "Lower_Bar") or (area.name == "Upper_Bar"):
 		velocity.y = -velocity.y
+		#Alternativamente velocity.x += etc
 		velocity.x =  self.get_global_transform().origin.x - area.get_global_transform().origin.x
 	if (area.name == "Left_Wall") or (area.name == "Right_Wall"):
 		velocity.x = -velocity.x
