@@ -31,6 +31,12 @@ id = 2
 [node name="Bloco" parent="." instance=ExtResource( 2 )]
 position = Vector2( 512, 256 )
 
+[node name="Bloco2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 342, 253 )
+
+[node name="Bloco3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 687, 256 )
+
 [node name="Left_Wall" type="Area2D" parent="."]
 position = Vector2( 0, 300 )
 scale = Vector2( 1, 3 )
