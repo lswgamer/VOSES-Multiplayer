@@ -19,7 +19,7 @@ b = Vector2( -32, 32 )
 a = Vector2( 32, -32 )
 b = Vector2( 32, 32 )
 
-[node name="Block" type="Sprite"]
+[node name="Block" type="Sprite" groups=["blocks"]]
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
