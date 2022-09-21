@@ -17,28 +17,28 @@ func remove():
 
 func _on_Up_area_entered(area):
 	if (area.name == "Ball"):
-		area.velocity.y = -area.velocity.y
+		area.velocity.y = -abs(area.velocity.y)
 		hp -= hp
 		if hp == 0:
 			remove()
 
 func _on_Down_area_entered(area):
 	if (area.name == "Ball"):
-		area.velocity.y = -area.velocity.y
+		area.velocity.y = abs(area.velocity.y) 
 		hp -= hp
 		if hp == 0:
 			remove()
 		
 func _on_Left_area_entered(area):
 	if (area.name == "Ball"):
-		area.velocity.x = -area.velocity.x
+		area.velocity.x = -abs(area.velocity.x)
 		hp -= hp
 		if hp == 0:
 			remove()
 		
 func _on_Right_area_entered(area):
 	if (area.name == "Ball"):
-		area.velocity.x = -area.velocity.x
+		area.velocity.x = abs(area.velocity.x)
 		hp -= hp
 		if hp == 0:
 			remove()

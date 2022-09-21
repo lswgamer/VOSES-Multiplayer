@@ -13,6 +13,7 @@ a = Vector2( 1, -100 )
 b = Vector2( 1, 92 )
 
 [node name="Level" type="Node2D"]
+position = Vector2( 1, 0 )
 script = ExtResource( 4 )
 
 [node name="Background" type="ColorRect" parent="."]
@@ -22,10 +23,12 @@ color = Color( 0.431373, 0.431373, 0.431373, 1 )
 
 [node name="Lower_Bar" parent="." instance=ExtResource( 1 )]
 position = Vector2( 512, 552 )
+speed = 300
 
 [node name="Upper_Bar" parent="." instance=ExtResource( 1 )]
 position = Vector2( 512, 24 )
 id = 2
+speed = 300
 
 [node name="Left_Wall" type="Area2D" parent="."]
 position = Vector2( 0, 300 )
@@ -43,5 +46,6 @@ shape = SubResource( 2 )
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 504 )
+speed = 400
 
 [connection signal="ballDead" from="Ball" to="." method="respawn"]

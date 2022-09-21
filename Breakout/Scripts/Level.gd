@@ -17,22 +17,25 @@ func _ready(): #spawna a bola
 	block_spawn(nivel)
 
 func _process(delta):
-	var quantity = len(get_tree().get_nodes_in_group("blocks"))
-	if quantity == 0:
-		nivel += 1
-		block_spawn(nivel)
+		check_blocks()
 #		print("Next level") # Se matou todos os blocos, passa nivel
 	
 #Checa se tem blocos ainda, se não tiver carrega next level
 func check_blocks():
-	pass
+	var quantity = len(get_tree().get_nodes_in_group("blocks"))
+	if quantity == 0:
+		nivel += 1
+		block_spawn(nivel)
 	
 func block_spawn(nivel):
+	if nivel == 64:
+		nivel = 0
+
 	for i in range(5):
 		for j in range(14):
 			if levelList[nivel*5+i][j] == '1':
 				var block = BLOCK_.instance()
-				block.position = Vector2(64*(j+1),64*(i+2)+32)
+				block.position = Vector2(64*(j+1.5),64*(i+2)+32)
 				add_child(block)
 			
 
