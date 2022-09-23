@@ -26,7 +26,6 @@ func _ready(): #spawna a bola
 
 func _process(delta):
 		check_blocks()
-#		print("Next level") # Se matou todos os blocos, passa nivel
 	
 #Checa se tem blocos ainda, se não tiver carrega next level
 func check_blocks():
@@ -37,7 +36,7 @@ func check_blocks():
 		block_spawn(nivel)
 	
 func choose_animation(nivel):
-	var chosen = randi()%5 + 1
+	chosen = randi()%5 + 1
 	if randi()%(100-nivel) <= 2:
 		chosen = 0
 		lowerBar.anim.play("bar-" + str(chosen))
@@ -61,8 +60,8 @@ func block_spawn(nivel):
 				var block = BLOCK_.instance()
 				block.position = Vector2(64*(j+1.5),64*(i+2)+32)
 				add_child(block)
-#				get_node("block").anim.play("block-" + str(chosen) + "-idle")
 			
+	get_tree().call_group("blocks", "set_animation", chosen)
 
 func respawn(): #Se a bola sair da tela ela respawna, tirando uma vida
 	lives -= 1

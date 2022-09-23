@@ -1,14 +1,7 @@
 extends AnimatedSprite
 
-
-var chosen
 export var hp = 1
 onready var anim = self
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
 func remove():
 	#play break animation
@@ -42,3 +35,8 @@ func _on_Right_area_entered(area):
 		hp -= hp
 		if hp == 0:
 			remove()
+
+func set_animation(chosen):
+	print(chosen)
+	anim.play("block-" + str(chosen) + "-idle")
+	
