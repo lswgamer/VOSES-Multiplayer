@@ -103,6 +103,7 @@ extents = Vector2( 127.5, 15.75 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 1 )
 frames = SubResource( 7 )
 animation = "bar-5-2"
 

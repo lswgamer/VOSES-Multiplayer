@@ -17,7 +17,7 @@ func _ready(): #spawna a bola
 	ball.position = lowerBar.position - spwOffset
 	
 	var levels = File.new()
-	levels.open("res://Levels/presets.py", File.READ)
+	levels.open("res://Levels/presets.txt", File.READ)
 	level_load(levels)
 	levels.close()
 	
@@ -50,6 +50,8 @@ func choose_animation(nivel):
 	background.play("bg-" + str(chosen))
 
 func block_spawn(nivel):
+	lives += 1
+	
 	if nivel == 64:
 		nivel = 0
 
@@ -59,6 +61,7 @@ func block_spawn(nivel):
 				var block = BLOCK_.instance()
 				block.position = Vector2(64*(j+1.5),64*(i+2)+32)
 				add_child(block)
+#				get_node("block").anim.play("block-" + str(chosen) + "-idle")
 			
 
 func respawn(): #Se a bola sair da tela ela respawna, tirando uma vida
@@ -66,7 +69,12 @@ func respawn(): #Se a bola sair da tela ela respawna, tirando uma vida
 	if lives == 0:
 		gameover()
 	else: #spawna a bola
-		ball.position = lowerBar.position - spwOffset
+		if not lives%2:
+			ball.velocity = Vector2(0,1)
+			ball.position = lowerBar.position - spwOffset
+		else:
+			ball.velocity = Vector2(0,-1)
+			ball.position = upperBar.position + spwOffset
 
 
 func gameover(): #cria uma popup com score e te manda pro menu

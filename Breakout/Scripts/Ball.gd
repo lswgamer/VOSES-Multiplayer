@@ -25,6 +25,5 @@ func _on_Node2D_area_entered(area):
 		
 
 func _on_VisibilityNotifier2D_screen_exited():
-	velocity = Vector2(0,1)
 	emit_signal("ballDead")
 

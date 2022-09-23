@@ -724,7 +724,7 @@ b = Vector2( 32, 32 )
 
 [node name="Block" type="AnimatedSprite" groups=["blocks"]]
 frames = SubResource( 121 )
-animation = "block-5-2-hit"
+animation = "block-0"
 script = ExtResource( 2 )
 
 [node name="Up" type="Area2D" parent="."]
