@@ -54,6 +54,7 @@ b = Vector2( 1, 92 )
 [node name="Level" type="Node2D"]
 position = Vector2( 1, 0 )
 script = ExtResource( 4 )
+nivel = 63
 
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 1024.0

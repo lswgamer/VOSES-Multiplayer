@@ -1,7 +1,7 @@
 extends Node2D
 
 export var nivel = 0
-var chosen #Stores sprite number
+var chosen = 0 #Stores sprite number
 var BLOCK_ = preload("res://Scenes/Block.tscn")
 var levelList = [] #Stores level configuration
 export var spwOffset = Vector2(0,50)
@@ -61,9 +61,13 @@ func block_spawn(nivel):
 			if levelList[nivel*5+i][j] == '1':
 				var block = BLOCK_.instance()
 				block.position = Vector2(64*(j+1.5),64*(i+2)+32)
+				if randi()%100 < nivel:
+					block.hp += 1
+					if randi()%100 < nivel:
+						block.hp += 1
 				add_child(block)
 			
-	get_tree().call_group("blocks", "set_animation", chosen)
+	get_tree().call_group("blocks", "set_anim", chosen)
 
 func respawn(): #Se a bola sair da tela ela respawna, tirando uma vida
 	lives -= 1

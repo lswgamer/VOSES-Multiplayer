@@ -18,59 +18,75 @@ func remove():
 	#If block is dead (and animation not playing anymore)
 	if blockDead:
 		self.queue_free()
+	else:
+		anim.stop()
+		set_anim(blockValue)
 
 func _on_Up_area_entered(area):
 	if (area.name == "Ball" and !blockDead):
 		area.velocity.y = -abs(area.velocity.y)
-		hp -= hp
+		hp -= 1
 		if hp == 0:
 			if blockValue > 0:
 				break_animation(blockValue)
 			else: #sprite-0 has no break animation
 				blockDead = true
 				remove()
+		else:
+			anim.play("block-" + str(blockValue) + "-" + str(hp) + "hit")
 
 func _on_Down_area_entered(area):
 	if (area.name == "Ball" and !blockDead):
 		area.velocity.y = abs(area.velocity.y) 
-		hp -= hp
+		hp -= 1
 		if hp == 0:
 			if blockValue > 0:
 				break_animation(blockValue)
 			else:
 				blockDead = true
 				remove()
+		else:
+			anim.play("block-" + str(blockValue) + "-" + str(hp) + "hit")
 		
 func _on_Left_area_entered(area):
 	if (area.name == "Ball" and !blockDead):
 		area.velocity.x = -abs(area.velocity.x)
-		hp -= hp
+		hp -= 1
 		if hp == 0:
 			if blockValue > 0:
 				break_animation(blockValue)
 			else:
 				blockDead = true
 				remove()
+		else:
+			anim.play("block-" + str(blockValue) + "-" + str(hp) + "hit")
 		
 func _on_Right_area_entered(area):
 	if (area.name == "Ball" and !blockDead):
 		area.velocity.x = abs(area.velocity.x)
-		hp -= hp
+		hp -= 1
 		if hp == 0:
 			if blockValue > 0:
 				break_animation(blockValue)
 			else:
 				blockDead = true
 				remove()
+		else:
+			anim.play("block-" + str(blockValue) + "-" + str(hp) + "hit")
 
 func break_animation(blockValue):
-	#Plays the break animation, sets fade value and blockDead
+	#Plays the break animation, sets fade value and blockDead	
 	anim.play("block-" + str(blockValue) + "-die")
 	fade = 0.5
 	blockDead = true
 
-func set_animation(chosen):
+func set_anim(chosen):
 	#Stores sprite number and play the base animation
 	blockValue = chosen
-	anim.play("block-" + str(chosen) + "-idle")
+	if hp > 1:
+		anim.set_animation("block-" + str(blockValue) + "-" + str(hp-1) + "-hit")
+		anim.set_frame(0)
+	else:
+		anim.set_animation("block-" + str(blockValue) + "-die")
+		anim.set_frame(0)
 	
