@@ -1,9 +1,9 @@
 extends Node2D
 
 export var nivel = 0
-var chosen
+var chosen #Stores sprite number
 var BLOCK_ = preload("res://Scenes/Block.tscn")
-var levelList = []
+var levelList = [] #Stores level configuration
 export var spwOffset = Vector2(0,50)
 onready var lives = 3 #podemos guardar num autoload pra salvar o número de vidas entre fases
 onready var ball = get_node("Ball")
@@ -17,7 +17,7 @@ func _ready(): #spawna a bola
 	ball.position = lowerBar.position - spwOffset
 	
 	var levels = File.new()
-	levels.open("res://Levels/presets.txt", File.READ)
+	levels.open("res://Levels/presets.txt", File.READ) #File has level configuration info
 	level_load(levels)
 	levels.close()
 	
@@ -35,9 +35,10 @@ func check_blocks():
 		choose_animation(nivel)
 		block_spawn(nivel)
 	
+#Randomly generate sprite number and sets animation for bar, ball and bg
 func choose_animation(nivel):
 	chosen = randi()%5 + 1
-	if randi()%(100-nivel) <= 2:
+	if randi()%100 < 2: #1% chance of sprite-0
 		chosen = 0
 		lowerBar.anim.play("bar-" + str(chosen))
 		upperBar.anim.play("bar-" + str(chosen))
@@ -48,6 +49,7 @@ func choose_animation(nivel):
 	ball.sprite.play("ball-" + str(chosen))
 	background.play("bg-" + str(chosen))
 
+#Spawns block based on listLevel and call block group to set base animation
 func block_spawn(nivel):
 	lives += 1
 	
@@ -68,10 +70,10 @@ func respawn(): #Se a bola sair da tela ela respawna, tirando uma vida
 	if lives == 0:
 		gameover()
 	else: #spawna a bola
-		if not lives%2:
+		if not lives%2: #Odd lives = ball spawns for id=1
 			ball.velocity = Vector2(0,1)
 			ball.position = lowerBar.position - spwOffset
-		else:
+		else: #Even lives = ball spawns for id=2
 			ball.velocity = Vector2(0,-1)
 			ball.position = upperBar.position + spwOffset
 
@@ -80,6 +82,7 @@ func gameover(): #cria uma popup com score e te manda pro menu
 	ball.queue_free()
 	pass
 
+#Stores level configuration from input file
 func level_load(file):
 	for i in range(64):
 		for j in range(5):

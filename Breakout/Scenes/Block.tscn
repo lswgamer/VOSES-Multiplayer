@@ -747,6 +747,7 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
 shape = SubResource( 4 )
 
+[connection signal="animation_finished" from="." to="." method="remove"]
 [connection signal="area_entered" from="Up" to="." method="_on_Up_area_entered"]
 [connection signal="area_entered" from="Down" to="." method="_on_Down_area_entered"]
 [connection signal="area_entered" from="Left" to="." method="_on_Left_area_entered"]
