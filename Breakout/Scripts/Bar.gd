@@ -5,6 +5,7 @@ export var speed = 200
 onready var cs = $CollisionShape2D 
 onready var sprite = $Sprite
 onready var screen_size
+onready var anim = $Sprite
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -22,5 +23,5 @@ func _process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 	position += velocity * delta
-	position.x = clamp(position.x, 0+((sprite.texture.get_size().x)/2), screen_size.x-((sprite.texture.get_size().x)/2))
+	position.x = clamp(position.x, 0+((sprite.get_sprite_frames().get_frame("bar-0",0).get_size().x)/2), screen_size.x-((sprite.get_sprite_frames().get_frame("bar-0",0).get_size().x)/2))
 	

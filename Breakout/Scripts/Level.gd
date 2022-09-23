@@ -1,19 +1,27 @@
 extends Node2D
 
 export var nivel = 0
+var chosen
 var BLOCK_ = preload("res://Scenes/Block.tscn")
 var levelList = []
 export var spwOffset = Vector2(0,50)
 onready var lives = 3 #podemos guardar num autoload pra salvar o número de vidas entre fases
 onready var ball = get_node("Ball")
 onready var lowerBar = get_node("Lower_Bar")
+onready var upperBar = get_node("Upper_Bar")
+onready var background = $Background/AnimatedSprite
 
 func _ready(): #spawna a bola 
+	randomize()
+	
 	ball.position = lowerBar.position - spwOffset
+	
 	var levels = File.new()
 	levels.open("res://Levels/presets.py", File.READ)
 	level_load(levels)
 	levels.close()
+	
+	choose_animation(nivel)
 	block_spawn(nivel)
 
 func _process(delta):
@@ -25,8 +33,22 @@ func check_blocks():
 	var quantity = len(get_tree().get_nodes_in_group("blocks"))
 	if quantity == 0:
 		nivel += 1
+		choose_animation(nivel)
 		block_spawn(nivel)
 	
+func choose_animation(nivel):
+	var chosen = randi()%5 + 1
+	if randi()%(100-nivel) <= 2:
+		chosen = 0
+		lowerBar.anim.play("bar-" + str(chosen))
+		upperBar.anim.play("bar-" + str(chosen))
+	else:
+		lowerBar.anim.play("bar-" + str(chosen) + "-1")
+		upperBar.anim.play("bar-" + str(chosen) + "-2")
+	
+	ball.sprite.play("ball-" + str(chosen))
+	background.play("bg-" + str(chosen))
+
 func block_spawn(nivel):
 	if nivel == 64:
 		nivel = 0
