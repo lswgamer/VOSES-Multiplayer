@@ -1,9 +1,47 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Bar.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Block.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sprites/Tema3/background03.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Sprites/Tema0/background-0.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Tema5/background05.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Tema2/background02.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Tema1/background-1-1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Tema4/background04.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "bg-1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "bg-2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "bg-3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "bg-0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "bg-4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "bg-5",
+"speed": 5.0
+} ]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 0, -100 )
@@ -14,28 +52,29 @@ a = Vector2( 1, -100 )
 b = Vector2( 1, 92 )
 
 [node name="Level" type="Node2D"]
+position = Vector2( 1, 0 )
 script = ExtResource( 4 )
+nivel = 63
 
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 576.0
 color = Color( 0.431373, 0.431373, 0.431373, 1 )
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Background"]
+scale = Vector2( 0.8, 0.8 )
+frames = SubResource( 3 )
+animation = "bg-3"
+centered = false
+
 [node name="Lower_Bar" parent="." instance=ExtResource( 1 )]
-position = Vector2( 512, 544 )
+position = Vector2( 512, 552 )
+speed = 300
 
 [node name="Upper_Bar" parent="." instance=ExtResource( 1 )]
-position = Vector2( 512, 56 )
+position = Vector2( 512, 24 )
 id = 2
-
-[node name="Bloco" parent="." instance=ExtResource( 2 )]
-position = Vector2( 512, 256 )
-
-[node name="Bloco2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 342, 253 )
-
-[node name="Bloco3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 687, 256 )
+speed = 300
 
 [node name="Left_Wall" type="Area2D" parent="."]
 position = Vector2( 0, 300 )
@@ -52,6 +91,7 @@ scale = Vector2( 1, 3 )
 shape = SubResource( 2 )
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
-position = Vector2( 512, 448 )
+position = Vector2( 515, 504 )
+speed = 400
 
 [connection signal="ballDead" from="Ball" to="." method="respawn"]

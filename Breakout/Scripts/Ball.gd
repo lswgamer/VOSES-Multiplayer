@@ -1,7 +1,8 @@
 extends Area2D
 
 var life = 3
-var velocity = Vector2(0,1)
+var touch = 0
+var velocity = Vector2(0.5,1)
 export var speed = 200
 onready var cs = $CollisionShape2D
 onready var sprite = $Sprite
@@ -24,5 +25,5 @@ func _on_Node2D_area_entered(area):
 		
 
 func _on_VisibilityNotifier2D_screen_exited():
-	velocity = Vector2(0,1)
 	emit_signal("ballDead")
+
