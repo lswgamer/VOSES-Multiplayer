@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Rules.gd" type="Script" id=1]
-[ext_resource path="res://Assets/icon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/menu/back_button.png" type="Texture" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -15,6 +15,7 @@ margin_bottom = 581.0
 [node name="ReturnButton" type="TextureButton" parent="."]
 margin_right = 108.0
 margin_bottom = 92.0
+rect_scale = Vector2( 0.5, 0.5 )
 texture_normal = ExtResource( 2 )
 
 [connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]

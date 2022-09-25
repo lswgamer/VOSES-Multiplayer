@@ -6,8 +6,7 @@ func _on_PlayButton_pressed():
 
 
 func _on_CreditsButton_pressed():
-	pass
-	#get_tree().change_scene("res://Scenes/Credits.tscn")
+	get_tree().change_scene("res://Scenes/Credits.tscn")
 
 
 func _on_LevelSelectButton_pressed(): #Opens a popup with the level select grid

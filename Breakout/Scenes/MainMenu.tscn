@@ -14,11 +14,18 @@ anchor_bottom = 1.0
 script = ExtResource( 7 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 1280.0
-margin_bottom = 720.0
+anchor_right = 1.04902
+anchor_bottom = 1.02771
+margin_right = 204.8
+margin_bottom = 95.04
 rect_scale = Vector2( 0.8, 0.835 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 1 )
-stretch_mode = 1
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="PlayButton" type="TextureButton" parent="."]
 anchor_left = 0.5
