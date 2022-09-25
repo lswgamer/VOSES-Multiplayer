@@ -83,6 +83,14 @@ func respawn(): #Se a bola sair da tela ela respawna, tirando uma vida
 
 func gameover(): #cria uma popup com nível alcançado e um botão que te manda pro menu
 	ball.queue_free()
+	var dialog = AcceptDialog.new()
+	dialog.dialog_text = "Game Over!\n You've reached level %s" % (nivel)
+	add_child(dialog)
+	dialog.popup_centered()
+	dialog.connect("confirmed", self, "menu_return")
+	
+func menu_return():
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
 #Stores level configuration from input file
 func level_load(file):
