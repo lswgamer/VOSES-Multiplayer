@@ -17,16 +17,6 @@ animations = [ {
 "name": "bg-0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "bg-4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "bg-5",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "bg-1",
@@ -41,6 +31,16 @@ animations = [ {
 "loop": true,
 "name": "bg-3",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "bg-4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "bg-5",
+"speed": 5.0
 } ]
 
 [sub_resource type="SegmentShape2D" id=1]
@@ -54,6 +54,7 @@ b = Vector2( 1, 92 )
 [node name="Level" type="Node2D"]
 position = Vector2( 1, 0 )
 script = ExtResource( 4 )
+nivel = 30
 
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 1024.0
@@ -91,5 +92,9 @@ shape = SubResource( 2 )
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
 position = Vector2( 515, 504 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
 
 [connection signal="ballDead" from="Ball" to="." method="respawn"]
