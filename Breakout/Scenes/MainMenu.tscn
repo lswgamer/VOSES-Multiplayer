@@ -1,84 +1,86 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/menu/menu1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/menu/credits_button.png" type="Texture" id=2]
-[ext_resource path="res://Assets/menu/level-selct_button2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/menu/level-select_button.png" type="Texture" id=3]
 [ext_resource path="res://Assets/menu/sound_button.png" type="Texture" id=4]
 [ext_resource path="res://Assets/menu/tutorial_button.png" type="Texture" id=5]
-[ext_resource path="res://Assets/menu/button6.png" type="Texture" id=6]
+[ext_resource path="res://Assets/menu/play_button.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=7]
+[ext_resource path="res://Assets/menu/titlecard.png" type="Texture" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 7 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchor_right = 1.04902
-anchor_bottom = 1.02771
-margin_right = 204.8
-margin_bottom = 95.04
-rect_scale = Vector2( 0.8, 0.835 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="PlayButton" type="TextureButton" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -185.0
-margin_top = -168.0
-margin_right = 185.0
-margin_bottom = 168.0
+margin_left = -131.0
+margin_top = -132.5
+margin_right = 131.0
+margin_bottom = 132.5
 texture_normal = ExtResource( 6 )
 
 [node name="CreditsButton" type="TextureButton" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -152.0
-margin_right = 256.0
-margin_bottom = 104.0
-rect_scale = Vector2( 0.6, 0.6 )
-texture_normal = ExtResource( 2 )
-
-[node name="LevelSelectButton" type="TextureButton" parent="."]
-margin_left = 3.05176e-05
-margin_top = 3.05176e-05
-margin_right = 370.0
-margin_bottom = 336.0
-rect_scale = Vector2( 0.7, 0.7 )
-texture_normal = ExtResource( 3 )
-
-[node name="SoundButton" type="TextureButton" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -152.0
 margin_right = 104.0
 margin_bottom = 256.0
 rect_scale = Vector2( 0.6, 0.6 )
+texture_normal = ExtResource( 2 )
+
+[node name="LevelSelectButton" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -128.0
+margin_right = 163.0
+margin_bottom = 1.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 3 )
+
+[node name="SoundButton" type="TextureButton" parent="."]
+margin_right = 256.0
+margin_bottom = 256.0
+rect_scale = Vector2( 0.6, 0.6 )
 texture_normal = ExtResource( 4 )
 
 [node name="RulesButton" type="TextureButton" parent="."]
-anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -152.0
 margin_top = -152.0
-margin_right = 104.0
+margin_right = 256.0
 margin_bottom = 104.0
 rect_scale = Vector2( 0.6, 0.6 )
 texture_normal = ExtResource( 5 )
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="SFX" type="AudioStreamPlayer" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -144.0
+margin_right = 1776.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 8 )
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
