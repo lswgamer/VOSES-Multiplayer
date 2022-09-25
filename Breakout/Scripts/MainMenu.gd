@@ -19,5 +19,4 @@ func _on_SoundButton_pressed(): #Mutes/Unmutes the game, affects other screens
 
 
 func _on_RulesButton_pressed():
-	pass
-	#get_tree().change_scene("res://Scenes/Rules.tscn") 
+	get_tree().change_scene("res://Scenes/Rules.tscn")

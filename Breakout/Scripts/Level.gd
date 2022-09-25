@@ -53,7 +53,7 @@ func choose_animation(nivel):
 func block_spawn(nivel):
 	lives += 1
 	
-	ball.speed = 200 + 120*log(2*nivel+1)
+	ball.speed = 200 + 100*log(2*nivel+10)
 	for i in range(5):
 		for j in range(14):
 			if levelList[(nivel%64)*5+i][j] == '1':
@@ -81,9 +81,8 @@ func respawn(): #Se a bola sair da tela ela respawna, tirando uma vida
 			ball.position = upperBar.position + spwOffset
 
 
-func gameover(): #cria uma popup com score e te manda pro menu
+func gameover(): #cria uma popup com nível alcançado e um botão que te manda pro menu
 	ball.queue_free()
-	pass
 
 #Stores level configuration from input file
 func level_load(file):
