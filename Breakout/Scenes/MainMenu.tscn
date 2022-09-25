@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/menu/menu1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/menu/credits_button.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/menu/tutorial_button.png" type="Texture" id=5]
 [ext_resource path="res://Assets/menu/play_button.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=7]
+[ext_resource path="res://Assets/menu/titlecard.png" type="Texture" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -71,6 +72,15 @@ rect_scale = Vector2( 0.6, 0.6 )
 texture_normal = ExtResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -144.0
+margin_right = 1776.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 8 )
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]

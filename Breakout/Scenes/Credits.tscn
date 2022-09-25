@@ -7,7 +7,7 @@
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
 
-[node name="Control" type="Control"]
+[node name="Control2" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -54,7 +54,7 @@ Music
 Sound
 
 Font
-
+Xolonium - Severin Meyer
 
 [/center]"
 text = "
@@ -84,7 +84,7 @@ Music
 Sound
 
 Font
-
+Xolonium - Severin Meyer
 
 "
 
