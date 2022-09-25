@@ -53,12 +53,10 @@ func choose_animation(nivel):
 func block_spawn(nivel):
 	lives += 1
 	
-	if nivel == 64:
-		nivel = 0
-
+	ball.speed = 200 + 120*log(2*nivel+1)
 	for i in range(5):
 		for j in range(14):
-			if levelList[nivel*5+i][j] == '1':
+			if levelList[(nivel%64)*5+i][j] == '1':
 				var block = BLOCK_.instance()
 				block.position = Vector2(64*(j+1.5),64*(i+2)+32)
 				if randi()%100 < nivel:
@@ -66,6 +64,7 @@ func block_spawn(nivel):
 					if randi()%100 < nivel:
 						block.hp += 1
 				add_child(block)
+				
 			
 	get_tree().call_group("blocks", "set_anim", chosen)
 
