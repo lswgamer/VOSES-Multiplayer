@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Credits.gd" type="Script" id=1]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1024.0
+margin_bottom = 575.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+margin_left = 49.0
+margin_top = 76.0
+margin_right = 972.0
+margin_bottom = 510.0
+bbcode_enabled = true
+bbcode_text = "[center]
+Lead Planner
+
+Rogério 
+
+Planning
+
+Gustavo Vieira
+João Buzzo
+Leonardo Marcondes
+Pedro Regattieri Rocha
+
+Developers
+
+João Buzzo
+Pedro Regattieri Rocha
+
+Art
+
+Gustavo Vieira 
+Leonardo Marcondes
+
+Music
+
+Sound
+
+Font
+
+
+[/center]"
+text = "
+Lead Planner
+
+Rogério 
+
+Planning
+
+Gustavo Vieira
+João Buzzo
+Leonardo Marcondes
+Pedro Regattieri Rocha
+
+Developers
+
+João Buzzo
+Pedro Regattieri Rocha
+
+Art
+
+Gustavo Vieira 
+Leonardo Marcondes
+
+Music
+
+Sound
+
+Font
+
+
+"
+
+[node name="ReturnButton" type="TextureButton" parent="Panel"]
+margin_left = 5.0
+margin_top = 1.0
+margin_right = 125.0
+margin_bottom = 88.0
+texture_normal = ExtResource( 2 )
+
+[connection signal="pressed" from="Panel/ReturnButton" to="." method="_on_ReturnButton_pressed"]
