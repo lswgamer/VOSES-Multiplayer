@@ -91,4 +91,6 @@ margin_bottom = 257.0
 rect_scale = Vector2( 0.5, 0.5 )
 texture_normal = ExtResource( 2 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="Panel/ReturnButton" to="." method="_on_ReturnButton_pressed"]

@@ -11,21 +11,17 @@
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 7 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchor_right = 1.04902
-anchor_bottom = 1.02771
-margin_right = 204.8
-margin_bottom = 95.04
-rect_scale = Vector2( 0.8, 0.835 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="PlayButton" type="TextureButton" parent="."]
 anchor_left = 0.5
@@ -76,9 +72,7 @@ margin_bottom = 104.0
 rect_scale = Vector2( 0.6, 0.6 )
 texture_normal = ExtResource( 5 )
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-
-[node name="SFX" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
