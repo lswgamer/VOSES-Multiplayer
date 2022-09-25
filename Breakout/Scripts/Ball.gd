@@ -28,7 +28,7 @@ func _on_Node2D_area_entered(area):
 			velocity.x -= 100
 		elif (Input.is_action_pressed("upper_right")):
 			velocity.x += 100
-	elif (area.name == "Left_Wall") or (area.name == "Right_Wall"):
+	if (area.name == "Left_Wall") or (area.name == "Right_Wall"):
 		velocity.x = -velocity.x
 		
 
