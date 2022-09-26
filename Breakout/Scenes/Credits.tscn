@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Credits.gd" type="Script" id=1]
 [ext_resource path="res://Assets/menu/back_button.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Font/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/BGM/bgm-0.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Assets/SFX/button-press.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
@@ -119,5 +120,8 @@ texture_normal = ExtResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 
 [connection signal="pressed" from="Panel/ReturnButton" to="." method="_on_ReturnButton_pressed"]
