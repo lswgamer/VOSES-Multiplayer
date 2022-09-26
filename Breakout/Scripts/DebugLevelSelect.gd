@@ -1,7 +1,7 @@
 extends Control
 
 var selector = preload("res://Scenes/LevelSelector.tscn")
-onready var grid = $Panel/GridContainer
+onready var grid = $GridContainer
 
 func _ready():
 	for i in range(64):
