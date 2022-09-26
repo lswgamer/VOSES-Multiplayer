@@ -11,7 +11,9 @@ func _process(delta):
 	var cor = Color(get_modulate())
 	cor -= Color(0,0,0,fade*delta)
 	set_modulate(cor)
-	
+
+func iframes():
+	yield(get_tree().create_timer(0.1), "timeout")
 
 func remove():
 	#Runs when animation ends
@@ -25,21 +27,25 @@ func remove():
 func _on_Up_area_entered(area):
 	if (area.name == "Ball" and !blockDead):
 		area.velocity.y = -abs(area.velocity.y)
+		iframes()
 		blockhp()
 
 func _on_Down_area_entered(area):
 	if (area.name == "Ball" and !blockDead):
 		area.velocity.y = abs(area.velocity.y) 
+		iframes()
 		blockhp()
 		
 func _on_Left_area_entered(area):
 	if (area.name == "Ball" and !blockDead):
 		area.velocity.x = -abs(area.velocity.x)
+		iframes()
 		blockhp()
 		
 func _on_Right_area_entered(area):
 	if (area.name == "Ball" and !blockDead):
 		area.velocity.x = abs(area.velocity.x)
+		iframes()
 		blockhp()
 
 func break_animation(blockValue):

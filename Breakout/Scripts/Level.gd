@@ -13,7 +13,7 @@ onready var background = $Background/AnimatedSprite
 
 func _ready(): #spawna a bola 
 	randomize()
-	
+	nivel = Global.starting_level
 	ball.position = lowerBar.position - spwOffset
 	
 	var levels = File.new()

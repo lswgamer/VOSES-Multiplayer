@@ -10,7 +10,7 @@ func _on_CreditsButton_pressed():
 
 
 func _on_LevelSelectButton_pressed(): #Opens a popup with the level select grid
-	pass # Replace with function body.
+	get_tree().change_scene("res://Scenes/LevelSelect.tscn")
 
 
 func _on_SoundButton_pressed(): #Mutes/Unmutes the game, affects other screens
