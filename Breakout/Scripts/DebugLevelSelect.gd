@@ -18,9 +18,9 @@ func _ready():
 
 
 func _on_TextureButton_pressed():
-	Global.song_pos = $AudioStreamPlayer.get_playback_position()
 	play_button_press()
-	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	$Timer.start()
+	yield($Timer, "timeout")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("mute"):
@@ -28,7 +28,12 @@ func _process(_delta):
 		$AudioStreamPlayer.playing = !Global.ismuted
 
 func play_button_press():
-	$ButtonSFX.play()
-	$ButtonSFX.seek(0.2)
 	$ButtonSFX.volume_db = -20
-	yield(get_tree().create_timer(0.2), "timeout")
+	$ButtonSFX.seek(0.2)
+	$ButtonSFX.play()
+
+func _on_Timer_timeout():
+	Global.song_pos = $AudioStreamPlayer.get_playback_position()
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+

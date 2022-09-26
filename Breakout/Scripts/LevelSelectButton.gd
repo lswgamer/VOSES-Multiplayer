@@ -9,4 +9,5 @@ func _ready():
 
 func _on_LevelPreviewButton_pressed():
 	Global.starting_level = level
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/Level.tscn")

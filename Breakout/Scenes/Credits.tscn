@@ -55,6 +55,16 @@ Music
 
 Hall of the Mountain King - Kevin MacLeod
 
+Amazing Plan - Kevin MacLeod
+
+(Loop) By the Sea - plasterbrain
+
+Goa Sounds - Riff_7_124 bpm - .Andre_Onate
+
+Sakura Girl - Candy
+
+organic metalic ambience - burning-mir
+
 Sound Effects
 
 Zero Level - waxxman
@@ -95,6 +105,16 @@ Music
 
 Hall of the Mountain King - Kevin MacLeod
 
+Amazing Plan - Kevin MacLeod
+
+(Loop) By the Sea - plasterbrain
+
+Goa Sounds - Riff_7_124 bpm - .Andre_Onate
+
+Sakura Girl - Candy
+
+organic metalic ambience - burning-mir
+
 Sound Effects
 
 Zero Level - waxxman
@@ -124,4 +144,9 @@ stream = ExtResource( 4 )
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
 [connection signal="pressed" from="Panel/ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

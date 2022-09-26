@@ -33,7 +33,7 @@ func _ready(): #spawna a bola
 	BGM.playing = !Global.ismuted
 	old = chosen
 
-func _process(delta):
+func _process(_delta):
 		check_blocks()
 		if Input.is_action_just_pressed("mute"):
 			Global.ismuted = !Global.ismuted
@@ -61,18 +61,18 @@ func transition_bgm():
 	else:
 		var path = "res://Assets/SFX/sfx-" + str(chosen) +".wav"
 		SFX.stream = load(path)
-		for i in range(10):
+		for _i in range(10):
 			yield(get_tree().create_timer(0.1), "timeout")
 			BGM.volume_db -= 10
 		path = "res://Assets/BGM/bgm-" + str(chosen) +".mp3"
 		BGM.stream = load(path) 
 		BGM.play()
-		for i in range(10):
+		for _i in range(10):
 			yield(get_tree().create_timer(0.1), "timeout")
 			BGM.volume_db += 10
 	
 #Randomly generate sprite number and sets animation for bar, ball and bg
-func choose_animation(nivel):
+func choose_animation(_nivel):
 	old = chosen
 	chosen = randi()%5 + 1
 	if randi()%100 < 2: #1% chance of sprite-0
@@ -90,7 +90,7 @@ func choose_animation(nivel):
 #Spawns block based on listLevel and call block group to set base animation
 func block_spawn(nivel):
 	lives += 1
-	print(lives)
+	#print(lives)
 	ball.speed = 200 + 100*log(2*nivel+10)
 	for i in range(5):
 		for j in range(14):
@@ -128,12 +128,13 @@ func gameover(): #cria uma popup com nível alcançado e um botão que te manda 
 	dialog.connect("confirmed", self, "menu_return")
 	
 func menu_return():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/MainMenu.tscn")
 
 #Stores level configuration from input file
 func level_load(file):
-	for i in range(64):
-		for j in range(5):
+	for _i in range(64):
+		for _j in range(5):
 			levelList.append(file.get_line().split(","))
 					
 		

@@ -17,9 +17,14 @@ animations = [ {
 "name": "bg-0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "bg-5",
+"name": "bg-1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "bg-2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -32,14 +37,9 @@ animations = [ {
 "name": "bg-4",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "bg-1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "bg-2",
+"name": "bg-5",
 "speed": 5.0
 } ]
 
