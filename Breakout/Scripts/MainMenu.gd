@@ -11,6 +11,7 @@ func _process(_delta):
 		$AudioStreamPlayer.playing = !Global.ismuted
 
 func _on_PlayButton_pressed():
+	Global.starting_level = 0
 	get_tree().change_scene("res://Scenes/Level.tscn")
 	
 
