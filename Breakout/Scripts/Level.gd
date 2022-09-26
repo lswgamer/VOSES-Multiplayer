@@ -82,6 +82,7 @@ func choose_animation(nivel):
 	else:
 		lowerBar.anim.play("bar-" + str(chosen) + "-1")
 		upperBar.anim.play("bar-" + str(chosen) + "-2")
+		upperBar.anim.set_flip_h(true)
 	
 	ball.sprite.play("ball-" + str(chosen))
 	background.play("bg-" + str(chosen))
