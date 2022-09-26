@@ -10,6 +10,7 @@ onready var ball = get_node("Ball")
 onready var lowerBar = get_node("Lower_Bar")
 onready var upperBar = get_node("Upper_Bar")
 onready var background = $Background/AnimatedSprite
+onready var BGM = $BGM
 
 func _ready(): #spawna a bola 
 	randomize()
@@ -41,6 +42,16 @@ func check_blocks():
 		nivel += 1
 		choose_animation(nivel)
 		block_spawn(nivel)
+	
+func transition_bgm():
+	for i in range(10):
+		yield(get_tree().create_timer(0.1), "timeout")
+		BGM.volume_db -= 10
+	var path = "res://Assets/BGM/" + str(chosen) +".mp3"
+	BGM.stream = path 
+	for i in range(10):
+		yield(get_tree().create_timer(0.1), "timeout")
+		BGM.volume_db += 10
 	
 #Randomly generate sprite number and sets animation for bar, ball and bg
 func choose_animation(nivel):

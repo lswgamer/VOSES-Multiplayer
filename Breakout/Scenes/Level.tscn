@@ -12,6 +12,16 @@
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "bg-0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "bg-1",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "bg-2",
@@ -22,24 +32,14 @@ animations = [ {
 "name": "bg-3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "bg-5",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "bg-1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "bg-4",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "bg-0",
+"name": "bg-5",
 "speed": 5.0
 } ]
 
@@ -54,7 +54,6 @@ b = Vector2( 1, 92 )
 [node name="Level" type="Node2D"]
 position = Vector2( 1, 0 )
 script = ExtResource( 4 )
-nivel = 30
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
