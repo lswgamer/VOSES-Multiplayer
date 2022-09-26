@@ -29,6 +29,8 @@ func _ready(): #spawna a bola
 	block_spawn(nivel)
 	old = -1
 	transition_bgm()
+	BGM.play()
+	BGM.playing = !Global.ismuted
 	old = chosen
 
 func _process(delta):
@@ -37,9 +39,9 @@ func _process(delta):
 			Global.ismuted = !Global.ismuted
 			BGM.playing = !Global.ismuted
 			if !Global.ismuted:
-				SFX.volume_db = -50
+				Global.has_sfx = true
 			else:
-				SFX.volume_db = -1000
+				Global.has_sfx = false
 		if Global.play_sfx == true:
 			SFX.play()
 			Global.play_sfx = false
@@ -64,6 +66,7 @@ func transition_bgm():
 			BGM.volume_db -= 10
 		path = "res://Assets/BGM/bgm-" + str(chosen) +".mp3"
 		BGM.stream = load(path) 
+		BGM.play()
 		for i in range(10):
 			yield(get_tree().create_timer(0.1), "timeout")
 			BGM.volume_db += 10

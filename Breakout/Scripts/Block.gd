@@ -14,7 +14,8 @@ func _process(delta):
 
 func iframes():
 	yield(get_tree().create_timer(0.1), "timeout")
-	Global.play_sfx = true
+	if Global.has_sfx == true:
+		Global.play_sfx = true
 
 func remove():
 	#Runs when animation ends
