@@ -2,6 +2,7 @@ extends Node2D
 
 export var nivel = 0
 var chosen = 0 #Stores sprite number
+var old = 0
 var BLOCK_ = preload("res://Scenes/Block.tscn")
 var levelList = [] #Stores level configuration
 export var spwOffset = Vector2(0,50)
@@ -15,6 +16,7 @@ onready var BGM = $BGM
 func _ready(): #spawna a bola 
 	randomize()
 	nivel = Global.starting_level
+	lives = Global.starting_lives
 	ball.position = lowerBar.position - spwOffset
 	
 	var levels = File.new()
@@ -44,17 +46,21 @@ func check_blocks():
 		block_spawn(nivel)
 	
 func transition_bgm():
-	for i in range(10):
-		yield(get_tree().create_timer(0.1), "timeout")
-		BGM.volume_db -= 10
-	var path = "res://Assets/BGM/" + str(chosen) +".mp3"
-	BGM.stream = path 
-	for i in range(10):
-		yield(get_tree().create_timer(0.1), "timeout")
-		BGM.volume_db += 10
+	if old == chosen:
+		pass
+	else:
+		for i in range(10):
+			yield(get_tree().create_timer(0.1), "timeout")
+			BGM.volume_db -= 10
+		var path = "res://Assets/BGM/" + str(chosen) +".mp3"
+		BGM.stream = path 
+		for i in range(10):
+			yield(get_tree().create_timer(0.1), "timeout")
+			BGM.volume_db += 10
 	
 #Randomly generate sprite number and sets animation for bar, ball and bg
 func choose_animation(nivel):
+	old = chosen
 	chosen = randi()%5 + 1
 	if randi()%100 < 2: #1% chance of sprite-0
 		chosen = 0
@@ -70,7 +76,7 @@ func choose_animation(nivel):
 #Spawns block based on listLevel and call block group to set base animation
 func block_spawn(nivel):
 	lives += 1
-	
+	print(lives)
 	ball.speed = 200 + 100*log(2*nivel+10)
 	for i in range(5):
 		for j in range(14):
