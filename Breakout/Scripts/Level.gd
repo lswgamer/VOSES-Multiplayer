@@ -26,6 +26,13 @@ func _ready(): #spawna a bola
 
 func _process(delta):
 		check_blocks()
+		if Input.is_action_pressed("mute"):
+			Global.ismuted = !Global.ismuted
+			$BGM.playing = !Global.ismuted
+			if !Global.ismuted:
+				$SFX.volume_db = -50
+			else:
+				$SFX.volume_db = -1000
 	
 #Checa se tem blocos ainda, se não tiver carrega next level
 func check_blocks():
