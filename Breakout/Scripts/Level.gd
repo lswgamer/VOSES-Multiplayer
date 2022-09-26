@@ -26,7 +26,7 @@ func _ready(): #spawna a bola
 
 func _process(delta):
 		check_blocks()
-		if Input.is_action_pressed("mute"):
+		if Input.is_action_just_pressed("mute"):
 			Global.ismuted = !Global.ismuted
 			$BGM.playing = !Global.ismuted
 			if !Global.ismuted:
