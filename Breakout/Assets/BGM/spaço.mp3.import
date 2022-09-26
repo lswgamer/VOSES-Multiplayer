@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/spaço.mp3-6c076fe6248c4dfbab1268616c86ece4.mp3str"
+
+[deps]
+
+source_file="res://Assets/BGM/spaço.mp3"
+dest_files=[ "res://.import/spaço.mp3-6c076fe6248c4dfbab1268616c86ece4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

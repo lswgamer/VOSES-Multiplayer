@@ -2,7 +2,7 @@ extends Node2D
 
 export var nivel = 0
 var chosen = 0 #Stores sprite number
-var old = 0
+var old = -1
 var BLOCK_ = preload("res://Scenes/Block.tscn")
 var levelList = [] #Stores level configuration
 export var spwOffset = Vector2(0,50)
@@ -12,6 +12,7 @@ onready var lowerBar = get_node("Lower_Bar")
 onready var upperBar = get_node("Upper_Bar")
 onready var background = $Background/AnimatedSprite
 onready var BGM = $BGM
+onready var SFX = $SFX
 
 func _ready(): #spawna a bola 
 	randomize()
@@ -26,16 +27,22 @@ func _ready(): #spawna a bola
 	
 	choose_animation(nivel)
 	block_spawn(nivel)
+	old = -1
+	transition_bgm()
+	old = chosen
 
 func _process(delta):
 		check_blocks()
 		if Input.is_action_just_pressed("mute"):
 			Global.ismuted = !Global.ismuted
-			$BGM.playing = !Global.ismuted
+			BGM.playing = !Global.ismuted
 			if !Global.ismuted:
-				$SFX.volume_db = -50
+				SFX.volume_db = -50
 			else:
-				$SFX.volume_db = -1000
+				SFX.volume_db = -1000
+		if Global.play_sfx == true:
+			SFX.play()
+			Global.play_sfx = false
 	
 #Checa se tem blocos ainda, se não tiver carrega next level
 func check_blocks():
@@ -44,16 +51,19 @@ func check_blocks():
 		nivel += 1
 		choose_animation(nivel)
 		block_spawn(nivel)
+		transition_bgm()
 	
 func transition_bgm():
 	if old == chosen:
 		pass
 	else:
+		var path = "res://Assets/SFX/sfx-" + str(chosen) +".wav"
+		SFX.stream = load(path)
 		for i in range(10):
 			yield(get_tree().create_timer(0.1), "timeout")
 			BGM.volume_db -= 10
-		var path = "res://Assets/BGM/" + str(chosen) +".mp3"
-		BGM.stream = path 
+		path = "res://Assets/BGM/bgm-" + str(chosen) +".mp3"
+		BGM.stream = load(path) 
 		for i in range(10):
 			yield(get_tree().create_timer(0.1), "timeout")
 			BGM.volume_db += 10

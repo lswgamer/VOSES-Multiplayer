@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/obra.mp3-534b940715c1b45ecebbe7804b3b3f42.mp3str"
+
+[deps]
+
+source_file="res://Assets/BGM/obra.mp3"
+dest_files=[ "res://.import/obra.mp3-534b940715c1b45ecebbe7804b3b3f42.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

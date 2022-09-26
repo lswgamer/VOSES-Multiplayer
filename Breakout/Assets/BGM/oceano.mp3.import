@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/oceano.mp3-4c9c12b2459c51cc82bef8def535ba52.mp3str"
+
+[deps]
+
+source_file="res://Assets/BGM/oceano.mp3"
+dest_files=[ "res://.import/oceano.mp3-4c9c12b2459c51cc82bef8def535ba52.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
