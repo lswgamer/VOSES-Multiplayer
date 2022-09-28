@@ -6,3 +6,4 @@ var song_pos : float = 0
 var starting_lives : int = 2
 var play_sfx : bool = false
 var has_sfx : bool = true
+var debug : bool = false

@@ -30,6 +30,8 @@ func _on_Node2D_area_entered(area):
 			velocity.x += 100
 	if (area.name == "Left_Wall") or (area.name == "Right_Wall"):
 		velocity.x = -velocity.x
+	if (area.name == "Safeguard"):
+		velocity.x = -velocity.x
 		
 
 func _on_VisibilityNotifier2D_screen_exited():

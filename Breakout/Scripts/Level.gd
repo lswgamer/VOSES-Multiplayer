@@ -77,9 +77,11 @@ func choose_animation(_nivel):
 	chosen = randi()%5 + 1
 	if randi()%100 < 2: #1% chance of sprite-0
 		chosen = 0
+		Global.debug = true
 		lowerBar.anim.play("bar-" + str(chosen))
 		upperBar.anim.play("bar-" + str(chosen))
 	else:
+		Global.debug = false
 		lowerBar.anim.play("bar-" + str(chosen) + "-1")
 		upperBar.anim.play("bar-" + str(chosen) + "-2")
 		upperBar.anim.set_flip_h(true)
@@ -122,7 +124,7 @@ func respawn(): #Se a bola sair da tela ela respawna, tirando uma vida
 func gameover(): #cria uma popup com nível alcançado e um botão que te manda pro menu
 	ball.queue_free()
 	var dialog = AcceptDialog.new()
-	dialog.dialog_text = "Game Over!\n You've reached level %s" % (nivel)
+	dialog.dialog_text = "Game Over!\n You've reached level %s" % (nivel+1)
 	add_child(dialog)
 	dialog.popup_centered()
 	dialog.connect("confirmed", self, "menu_return")

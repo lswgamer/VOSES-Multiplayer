@@ -21,6 +21,8 @@ func remove():
 	#Runs when animation ends
 	#If block is dead (and animation not playing anymore)
 	if blockDead:
+		if Global.debug:
+			yield(get_tree().create_timer(0.2), "timeout")
 		self.queue_free()
 	else:
 		anim.stop()

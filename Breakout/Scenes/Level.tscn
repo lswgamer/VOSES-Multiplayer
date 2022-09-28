@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Bar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/Tema3/background03.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Sprites/Tema2/background02.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Tema1/background-1-1.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Sprites/Tema4/background04.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Pause.gd" type="Script" id=10]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -48,6 +49,10 @@ extents = Vector2( 34.25, 96 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 57, 95.8333 )
+
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( -31, 1 )
+b = Vector2( -28, 583 )
 
 [node name="Level" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -97,5 +102,21 @@ position = Vector2( 515, 504 )
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
+
+[node name="Safeguard" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Safeguard"]
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Safeguard"]
+position = Vector2( 1087, 1 )
+shape = SubResource( 6 )
+
+[node name="Panel" type="Control" parent="."]
+pause_mode = 2
+visible = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 10 )
 
 [connection signal="ballDead" from="Ball" to="." method="respawn"]

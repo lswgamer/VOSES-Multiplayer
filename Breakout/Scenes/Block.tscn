@@ -577,6 +577,16 @@ region = Rect2( 560, 0, 70, 70 )
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
+"name": "block-0-1-hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "block-0-2-hit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
 "name": "block-0-die",
 "speed": 5.0
 }, {
@@ -674,7 +684,7 @@ b = Vector2( 32, 24 )
 
 [node name="Block" type="AnimatedSprite" groups=["blocks"]]
 frames = SubResource( 121 )
-animation = "block-0-die"
+animation = "block-0-2-hit"
 script = ExtResource( 2 )
 
 [node name="Up" type="Area2D" parent="."]
