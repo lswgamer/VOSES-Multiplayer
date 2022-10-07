@@ -1,10 +1,10 @@
-extends AnimatedSprite
+extends AnimatedSprite2D
 
-export var hp = 1
-export var fade = 0 #Fade-out speed
-onready var anim = self 
-onready var blockDead = false #Checks if block was destroyed
-onready var blockValue = 0 #Stores sprite number
+@export var hp = 1
+@export var fade = 0 #Fade-out speed
+@onready var anim = self 
+@onready var blockDead = false #Checks if block was destroyed
+@onready var blockValue = 0 #Stores sprite number
 
 func _process(delta):
 	#Fade-out effect (when fade != 0)
@@ -13,16 +13,16 @@ func _process(delta):
 	set_modulate(cor)
 
 func iframes():
-	yield(get_tree().create_timer(0.1), "timeout")
+	await get_tree().create_timer(0.1).timeout
 	if Global.has_sfx == true:
 		Global.play_sfx = true
 
-func remove():
+func remove_at():
 	#Runs when animation ends
 	#If block is dead (and animation not playing anymore)
 	if blockDead:
 		if Global.debug:
-			yield(get_tree().create_timer(0.2), "timeout")
+			await get_tree().create_timer(0.2).timeout
 		self.queue_free()
 	else:
 		anim.stop()
@@ -75,6 +75,6 @@ func blockhp():
 			break_animation(blockValue)
 		else: #sprite-0 has no break animation
 			blockDead = true
-			remove()
+			remove_at()
 	else:
 		anim.play("block-" + str(blockValue) + "-" + str(hp) + "-" + "hit")

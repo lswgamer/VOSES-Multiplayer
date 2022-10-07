@@ -1,22 +1,29 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://84sn44dloxcd"]
 
-[ext_resource path="res://Scripts/LevelSelectButton.gd" type="Script" id=1]
-[ext_resource path="res://Assets/icon.png" type="Texture" id=2]
+[ext_resource type="Script" path="res://Scripts/LevelSelectButton.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b8yhkqcrj0kfi" path="res://Levels/1.png" id="2_03sr8"]
 
 [node name="LevelSelector" type="Control"]
-anchor_right = 0.062
-anchor_bottom = 0.106
-margin_right = -0.488003
-margin_bottom = -0.0560036
-script = ExtResource( 1 )
-
-[node name="LevelPreviewButton" type="TextureButton" parent="."]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1.0
-margin_bottom = -29.0
-rect_min_size = Vector2( 64, 32 )
-texture_normal = ExtResource( 2 )
-expand = true
+offset_right = -1120.0
+offset_bottom = -559.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1")
+
+[node name="LevelPreviewButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2i(32, 17)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_03sr8")
+stretch_mode = 0
 
 [connection signal="pressed" from="LevelPreviewButton" to="." method="_on_LevelPreviewButton_pressed"]

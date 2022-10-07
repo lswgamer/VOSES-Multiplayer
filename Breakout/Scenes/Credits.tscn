@@ -1,35 +1,40 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://jfo2fx8tiw6y"]
 
-[ext_resource path="res://Scripts/Credits.gd" type="Script" id=1]
-[ext_resource path="res://Assets/menu/back_button.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Font/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Assets/BGM/bgm-0.mp3" type="AudioStream" id=4]
-[ext_resource path="res://Assets/SFX/button-press.wav" type="AudioStream" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 3 )
+[ext_resource type="Script" path="res://Scripts/Credits.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b6wdd3f66qbbs" path="res://Assets/menu/back_button.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://dgsmo8h0gdfme" path="res://Assets/BGM/bgm-0.mp3" id="4"]
+[ext_resource type="AudioStream" uid="uid://23ogjii7k82d" path="res://Assets/SFX/button-press.wav" id="5"]
 
 [node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
 
 [node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -461.0
-margin_top = -217.0
-margin_right = 462.0
-margin_bottom = 238.0
-custom_fonts/normal_font = SubResource( 1 )
+offset_left = -461.0
+offset_top = -217.0
+offset_right = 462.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
 bbcode_enabled = true
-bbcode_text = "[center]
+text = "[center]
 Lead Planner
 
 Rogério 
@@ -77,72 +82,21 @@ Button Press - Annyew
 
 Font
 Xolonium - Severin Meyer
-
 [/center]"
-text = "
-Lead Planner
-
-Rogério 
-
-Planning
-
-Gustavo Ferreira
-João Buzzo
-Leonardo Marcondes
-Pedro Regattieri Rocha
-
-Developers
-
-João Buzzo
-Pedro Regattieri Rocha
-
-Art
-
-Gustavo Ferreira
-Leonardo Marcondes
-
-Music
-
-Hall of the Mountain King - Kevin MacLeod
-
-Amazing Plan - Kevin MacLeod
-
-(Loop) By the Sea - plasterbrain
-
-Goa Sounds - Riff_7_124 bpm - .Andre_Onate
-
-Sakura Girl - Candy
-
-organic metalic ambience - burning-mir
-
-Sound Effects
-
-Zero Level - waxxman
-Sweets Level - wubitog
-Virus Level - Breviceps
-Space Level - runningmind
-Building Level - SoundsnapFX
-Ocean Level - Clagnar
-Button Press - Annyew
-
-Font
-Xolonium - Severin Meyer
-
-"
 
 [node name="ReturnButton" type="TextureButton" parent="Panel"]
-margin_left = 5.0
-margin_top = 1.0
-margin_right = 261.0
-margin_bottom = 257.0
-rect_scale = Vector2( 0.5, 0.5 )
-texture_normal = ExtResource( 2 )
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 261.0
+offset_bottom = 257.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource("4")
 
 [node name="ButtonSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource("5")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6

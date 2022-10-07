@@ -3,9 +3,9 @@ extends Area2D
 var life = 3
 var touch = 0
 var velocity = Vector2(0.5,1)
-export var speed = 200
-onready var cs = $CollisionShape2D
-onready var sprite = $Sprite
+@export var speed = 200
+@onready var cs = $CollisionShape2D
+@onready var sprite = $Sprite2D
 signal ballDead
 
 func _ready():

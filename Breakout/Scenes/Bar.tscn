@@ -1,111 +1,106 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=20 format=3 uid="uid://ca0fpx2haj4q7"]
 
-[ext_resource path="res://Scripts/Bar.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/Tema1/candybar01.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/Tema4/girderbar02.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/Tema2/virusbar01.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/Tema2/virusbar02.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/Tema0/bar-0.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/Tema5/fishbar01.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/Tema3/bar2.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/Tema3/bar.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/Tema1/candybar02.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/Tema5/fishbar02.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sprites/Tema4/girderbar01.png" type="Texture" id=12]
+[ext_resource type="Script" path="res://Scripts/Bar.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cihksund4t6v0" path="res://Assets/Sprites/Tema1/candybar01.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://btes7qwyb1tx6" path="res://Assets/Sprites/Tema4/girderbar02.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://b8o3g8yx6ngy3" path="res://Assets/Sprites/Tema2/virusbar01.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://clewi3pp7g6w8" path="res://Assets/Sprites/Tema2/virusbar02.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://biqsc6t05jjdp" path="res://Assets/Sprites/Tema0/bar-0.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cnwp7w0f0b7jd" path="res://Assets/Sprites/Tema5/fishbar01.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://burxe1hbc2g21" path="res://Assets/Sprites/Tema3/bar2.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://yq7xw7ft26nw" path="res://Assets/Sprites/Tema3/bar.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://ccwfmbd4iu6t6" path="res://Assets/Sprites/Tema1/candybar02.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://dqi74lkfblmg" path="res://Assets/Sprites/Tema5/fishbar02.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://bjael1tbakjl6" path="res://Assets/Sprites/Tema4/girderbar01.png" id="12"]
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 10 )
-region = Rect2( 0, 0, 256, 32 )
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("6")
+region = Rect2(0, 0, 256, 32)
 
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 256, 32 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 256, 32)
 
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 256, 32 )
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("10")
+region = Rect2(0, 0, 256, 32)
 
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 256, 32 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 256, 32)
 
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 256, 32 )
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("5")
+region = Rect2(0, 0, 256, 32)
 
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ ExtResource( 3 ) ],
+[sub_resource type="SpriteFrames" id="7"]
+animations = [{
+"frames": [SubResource("6")],
 "loop": true,
-"name": "bar-4-2",
+"name": &"bar-0",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 2 ) ],
+"frames": [SubResource("3")],
 "loop": true,
-"name": "bar-1-2",
+"name": &"bar-1-1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [SubResource("2")],
 "loop": true,
-"name": "bar-5-2",
+"name": &"bar-1-2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [SubResource("4")],
 "loop": true,
-"name": "bar-3-1",
+"name": &"bar-2-1",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ) ],
+"frames": [SubResource("5")],
 "loop": true,
-"name": "bar-1-1",
+"name": &"bar-2-2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ExtResource("9")],
 "loop": true,
-"name": "bar-5-1",
+"name": &"bar-3-1",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ExtResource("8")],
 "loop": true,
-"name": "bar-2-1",
+"name": &"bar-3-2",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ) ],
+"frames": [ExtResource("12")],
 "loop": true,
-"name": "bar-2-2",
+"name": &"bar-4-1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ExtResource("3")],
 "loop": true,
-"name": "bar-3-2",
+"name": &"bar-4-2",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ) ],
+"frames": [ExtResource("7")],
 "loop": true,
-"name": "bar-0",
+"name": &"bar-5-1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ExtResource("11")],
 "loop": true,
-"name": "bar-4-1",
+"name": &"bar-5-2",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 127.5, 15.75 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(255, 31.5)
 
 [node name="Bar" type="Area2D"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 1 )
-frames = SubResource( 7 )
-animation = "bar-5-2"
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+frames = SubResource("7")
+animation = &"bar-5-2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource("1")

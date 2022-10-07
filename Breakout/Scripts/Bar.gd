@@ -1,11 +1,11 @@
 extends Area2D
 
-export var id = 1
-export var speed = 200
-onready var cs = $CollisionShape2D 
-onready var sprite = $Sprite
-onready var screen_size
-onready var anim = $Sprite
+@export var id = 1
+@export var speed = 200
+@onready var cs = $CollisionShape2D 
+@onready var sprite = $Sprite2D
+@onready var screen_size
+@onready var anim = $Sprite2D
 
 func _ready():
 	screen_size = get_viewport_rect().size

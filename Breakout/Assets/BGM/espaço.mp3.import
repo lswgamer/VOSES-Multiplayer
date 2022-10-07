@@ -2,14 +2,18 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/espaço.mp3-60c98075fb35f1f02d41afefd3a39db8.mp3str"
+uid="uid://ct3jmlrmo1eqe"
+path="res://.godot/imported/espaço.mp3-60c98075fb35f1f02d41afefd3a39db8.mp3str"
 
 [deps]
 
 source_file="res://Assets/BGM/espaço.mp3"
-dest_files=[ "res://.import/espaço.mp3-60c98075fb35f1f02d41afefd3a39db8.mp3str" ]
+dest_files=["res://.godot/imported/espaço.mp3-60c98075fb35f1f02d41afefd3a39db8.mp3str"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

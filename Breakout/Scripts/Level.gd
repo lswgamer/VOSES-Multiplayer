@@ -1,18 +1,18 @@
 extends Node2D
 
-export var nivel = 0
+@export var nivel = 0
 var chosen = 0 #Stores sprite number
 var old = -1
 var BLOCK_ = preload("res://Scenes/Block.tscn")
 var levelList = [] #Stores level configuration
-export var spwOffset = Vector2(0,50)
-onready var lives = 3 #podemos guardar num autoload pra salvar o número de vidas entre fases
-onready var ball = get_node("Ball")
-onready var lowerBar = get_node("Lower_Bar")
-onready var upperBar = get_node("Upper_Bar")
-onready var background = $Background/AnimatedSprite
-onready var BGM = $BGM
-onready var SFX = $SFX
+@export var spwOffset = Vector2(0,50)
+@onready var lives = 3 #podemos guardar num autoload pra salvar o número de vidas entre fases
+@onready var ball = get_node("Ball")
+@onready var lowerBar = get_node("Lower_Bar")
+@onready var upperBar = get_node("Upper_Bar")
+@onready var background = $Background/AnimatedSprite2D
+@onready var BGM = $BGM
+@onready var SFX = $SFX
 
 func _ready(): #spawna a bola 
 	randomize()
@@ -20,10 +20,8 @@ func _ready(): #spawna a bola
 	lives = Global.starting_lives
 	ball.position = lowerBar.position - spwOffset
 	
-	var levels = File.new()
-	levels.open("res://Levels/presets.txt", File.READ) #File has level configuration info
+	var levels = FileAccess.open("res://Levels/presets.txt", FileAccess.READ) #File has level configuration info
 	level_load(levels)
-	levels.close()
 	
 	choose_animation(nivel)
 	block_spawn(nivel)
@@ -62,16 +60,16 @@ func transition_bgm():
 		var path = "res://Assets/SFX/sfx-" + str(chosen) +".wav"
 		SFX.stream = load(path)
 		for _i in range(10):
-			yield(get_tree().create_timer(0.1), "timeout")
+			await get_tree().create_timer(0.1).timeout
 			BGM.volume_db -= 10
 		path = "res://Assets/BGM/bgm-" + str(chosen) +".mp3"
 		BGM.stream = load(path) 
 		BGM.play()
 		for _i in range(10):
-			yield(get_tree().create_timer(0.1), "timeout")
+			await get_tree().create_timer(0.1).timeout
 			BGM.volume_db += 10
 	
-#Randomly generate sprite number and sets animation for bar, ball and bg
+#Randomly generate sprite number and sets animation for bar, ball and panel
 func choose_animation(_nivel):
 	old = chosen
 	chosen = randi()%5 + 1
@@ -87,9 +85,9 @@ func choose_animation(_nivel):
 		upperBar.anim.set_flip_h(true)
 	
 	ball.sprite.play("ball-" + str(chosen))
-	background.play("bg-" + str(chosen))
+	background.play("panel-" + str(chosen))
 
-#Spawns block based on listLevel and call block group to set base animation
+#Spawns block based checked listLevel and call block group to set base animation
 func block_spawn(nivel):
 	lives += 1
 	#print(lives)
@@ -97,7 +95,7 @@ func block_spawn(nivel):
 	for i in range(5):
 		for j in range(14):
 			if levelList[(nivel%64)*5+i][j] == '1':
-				var block = BLOCK_.instance()
+				var block = BLOCK_.instantiate()
 				block.position = Vector2(64*(j+1.5),64*(i+2)+32)
 				if randi()%100 < nivel:
 					block.hp += 1
@@ -127,11 +125,11 @@ func gameover(): #cria uma popup com nível alcançado e um botão que te manda 
 	dialog.dialog_text = "Game Over!\n You've reached level %s" % (nivel+1)
 	add_child(dialog)
 	dialog.popup_centered()
-	dialog.connect("confirmed", self, "menu_return")
+	dialog.connect("confirmed",Callable(self,"menu_return"))
 	
 func menu_return():
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 #Stores level configuration from input file
 func level_load(file):

@@ -13,7 +13,7 @@ func _process(_delta):
 func _on_ReturnButton_pressed():
 	play_button_press()
 	$Timer.start()
-	yield($Timer, "timeout")
+	await $Timer.timeout
 
 func play_button_press():
 	$ButtonSFX.volume_db = -20
@@ -24,4 +24,4 @@ func play_button_press():
 func _on_Timer_timeout():
 	Global.song_pos = $AudioStreamPlayer.get_playback_position()
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")

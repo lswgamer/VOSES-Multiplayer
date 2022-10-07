@@ -1,90 +1,84 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=16 format=3 uid="uid://c6hcvkmx2u5tc"]
 
-[ext_resource path="res://Assets/Sprites/Tema1/ball-1-sheet.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Ball.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Sprites/Tema5/ball05.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/Tema0/ball-0.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/Tema4/ball04.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/Tema2/ball02-sheet.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/Tema3/ball03.png" type="Texture" id=7]
+[ext_resource type="Texture2D" uid="uid://be8f6fdocftd6" path="res://Assets/Sprites/Tema1/ball-1-sheet.png" id="1"]
+[ext_resource type="Script" path="res://Scripts/Ball.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://br2sdayy2o3hx" path="res://Assets/Sprites/Tema5/ball05.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c1tjm82po508t" path="res://Assets/Sprites/Tema0/ball-0.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://sfdmdfgo6fse" path="res://Assets/Sprites/Tema4/ball04.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://c5mc6m8m5vn8d" path="res://Assets/Sprites/Tema2/ball02-sheet.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://b0s348s250ikq" path="res://Assets/Sprites/Tema3/ball03.png" id="7"]
 
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 32, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("1")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 64, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("6")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 6 )
-region = Rect2( 96, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("6")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("6")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("6")
+region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id=8]
-animations = [ {
-"frames": [ ExtResource( 5 ) ],
+[sub_resource type="SpriteFrames" id="8"]
+animations = [{
+"frames": [ExtResource("4")],
 "loop": true,
-"name": "ball-4",
+"name": &"ball-0",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"frames": [SubResource("6"), SubResource("7")],
 "loop": true,
-"name": "ball-2",
+"name": &"ball-1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [SubResource("2"), SubResource("3"), SubResource("4"), SubResource("5")],
 "loop": true,
-"name": "ball-3",
+"name": &"ball-2",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ExtResource("7")],
 "loop": true,
-"name": "ball-1",
+"name": &"ball-3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ExtResource("5")],
 "loop": true,
-"name": "ball-5",
+"name": &"ball-4",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ExtResource("3")],
 "loop": true,
-"name": "ball-0",
+"name": &"ball-5",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id="1"]
 radius = 16.0
 
 [node name="Ball" type="Area2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 8 )
-animation = "ball-5"
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("8")
+animation = &"ball-5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource("1")
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_Node2D_area_entered"]
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
